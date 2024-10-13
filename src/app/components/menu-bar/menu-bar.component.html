@@ -1,0 +1,10 @@
+<div class="card sticky-navbar">
+    <p-menubar [model]="items">
+        <ng-template pTemplate="end">
+            <div class="flex align-items-center gap-2">
+                <input type="text" pInputText placeholder="Search" class="w-8rem sm:w-auto" (input)="onSearchTermChange($event)" />
+                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+            </div>
+        </ng-template>
+    </p-menubar>
+</div>

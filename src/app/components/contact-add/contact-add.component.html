@@ -1,0 +1,38 @@
+  <p-dialog header="Add Contact" [(visible)]="visible" [modal]="true" [style]="{ width: '25rem', borderRadius: '8px' }" [closable]="true" [contentStyle]="{ padding: '1.5rem' }">
+    <span class="p-text-secondary block mb-4">Please enter contact details.</span>
+  
+    <div class="flex align-items-center gap-3 mb-3">
+      <label for="firstName" class="font-semibold w-6rem">First Name</label>
+      <input pInputText id="firstName" [(ngModel)]="newContact.firstName" class="flex-auto custom-input" autocomplete="off" />
+    </div>
+  
+    <div class="flex align-items-center gap-3 mb-3">
+      <label for="lastName" class="font-semibold w-6rem">Last Name</label>
+      <input pInputText id="lastName" [(ngModel)]="newContact.lastName" class="flex-auto custom-input" autocomplete="off" />
+    </div>
+  
+    <div class="flex align-items-center gap-3 mb-3">
+      <label for="email" class="font-semibold w-6rem">Email</label>
+      <input pInputText id="email" [(ngModel)]="newContact.email" class="flex-auto custom-input" autocomplete="off" />
+    </div>
+  
+    <div class="flex align-items-center gap-3 mb-4">
+      <label for="phone" class="font-semibold w-6rem">Phone</label>
+      <input pInputText id="phone" [(ngModel)]="newContact.phone" class="flex-auto custom-input" autocomplete="off" />
+    </div>
+  
+    <div class="flex align-items-center gap-3 mb-3">
+      <label for="fileUpload" class="font-semibold w-6rem">Profile Picture</label>
+      <input type="file" id="fileUpload" (change)="onFileSelected($event)" accept="image/*" class="custom-input" />
+    </div>
+  
+    <div class="mb-4" *ngIf="newContact.profileImage">
+      <img [src]="'data:image/png;base64,' + newContact.profileImage" alt="Profile Image" class="border-round w-full" />
+    </div>
+  
+    <div class="p-dialog-footer flex justify-content-end gap-2">
+      <button pButton label="Cancel" icon="pi pi-times" class="p-button-outlined p-button-secondary custom-cancel-btn" (click)="cancel()"></button>
+      <button pButton label="Add" icon="pi pi-check" class="p-button-primary custom-add-btn" (click)="addContact()"></button>
+    </div>
+  </p-dialog>
+  
